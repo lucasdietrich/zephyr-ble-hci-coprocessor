@@ -1,0 +1,19 @@
+# Copyright (c) 2020 Lucas Dietrich (ld.adecy@gmail.com)
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  self:
+    path: zephyr-caniot-controller
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+    - name: zephyrproject-rtos-fork
+      url-base: https://github.com/lucasdietrich
+      
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v3.2.0
+      import: true
+      

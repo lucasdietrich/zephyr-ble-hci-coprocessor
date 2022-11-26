@@ -1,0 +1,14 @@
+#
+# Copyright (c) 2022 Lucas Dietrich <ld.adecy@gmail.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+config APP_GPIO_3V3
+	bool "GPIO 3V3"
+	default y
+    depends on SOC_FAMILY_NRF
+	help
+        Set GPIO voltage to 3.3V
+
+source "Kconfig.zephyr"

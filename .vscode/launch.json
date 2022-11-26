@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "JLink debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "cwd": "${workspaceFolder}",
+            "interface": "swd",
+            "servertype": "jlink",
+            "device": "nrf52",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
+            // "serialNumber": "683339521",
+            // "preLaunchTask": "Flash",
+            "runToEntryPoint": "main",
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        "env": {
+            "venvPath": "../.venv",
+            "westPath": "../.venv/bin/west",
+            "netToolsPath": "../tools/net-tools",
+            "serialNumber": "50106017", /* 683339521, 50106017 */
+        }
+    },
+    "tasks": [
+        {
+            "label": "Build DK",
+            "detail": "Build",
+            "type": "shell",
+            "command": "${westPath} build -b nrf52840dk_nrf52840",
+            "args": [
+
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build DK",
+            "detail": "Build",
+            "type": "shell",
+            "command": "${westPath} build -b acn52840",
+            "args": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Dev",
+            "detail": "Build",
+            "type": "shell",
+            "command": "${westPath} build -b acn52840 -- -DDTC_OVERLAY_FILE=\"overlays/acn52840.overlay overlays/custom_acn52840.overlay\"",
+            "args": [],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash",
+            "detail": "Flash",
+            "type": "shell",
+            "command": "${westPath}",
+            "args": [
+                "-v",
+                "flash",
+                "-r",
+                "nrfjprog",
+                "--snr",
+                "${serialNumber}",
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+			"command": "rm -rf ${workspaceFolder}/build",
+            "group": "build",
+            "args": [
+            ],
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "presentation": {
+                "echo": false,
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Readelf",
+            "type": "shell",
+            "command": "arm-none-eabi-readelf -a ${workspaceFolder}/build/zephyr/zephyr.elf > readelf.txt",
+            "presentation": {
+                "echo": false,
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Disassembly",
+            "type": "shell",
+            "command": "arm-none-eabi-objdump -S ${workspaceFolder}/build/zephyr/zephyr.elf > disassembly.S",
+            "presentation": {
+                "echo": false,
+            },
+            "problemMatcher": []
+        },
+    ]
+}

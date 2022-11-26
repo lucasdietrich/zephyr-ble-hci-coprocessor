@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "../.venv/bin/python",
+    "tasks.statusbar.default.hide": true,
+    "cortex-debug.variableUseNaturalFormat": false
+}
