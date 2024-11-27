@@ -3,7 +3,7 @@
 
 manifest:
   self:
-    path: zephyr-caniot-controller
+    path: zephyr-ble-hci-coprocessor
 
   remotes:
     - name: zephyrproject-rtos

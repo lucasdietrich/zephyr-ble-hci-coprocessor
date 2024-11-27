@@ -1,6 +1,6 @@
-# Zephyr CANIoT Radio Coprocessor
+# Zephyr BLE HCI Coprocessor
 
-This project contains the source code for the CANIoT Radio Coprocessor (RCP) firmware.
+This project contains the source code for the BLE HCI Coprocessor (RCP) firmware.
 
 It belongs to the **[CANIoT Controller](https://github.com/lucasdietrich/zephyr-caniot-controller)** project.
 
